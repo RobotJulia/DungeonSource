@@ -33,19 +33,19 @@
  * @version 1.0
  */
 
-public abstract class DungeonCharacter implements Comparable
+public abstract class DungeonCharacter //implements Comparable
 {
 
 	protected String name;
-	protected int hitPoints;
-	protected int attackSpeed;
-	protected double chanceToHit;
+	private int hitPoints;
+	private int attackSpeed;
+	private double chanceToHit;
 	protected int damageMin, damageMax;
 
-	public int compareTo(Object o)
+	/*public int compareTo(Object o)
 	{
 		return 1;
-	}
+	}*/
 
 //-----------------------------------------------------------------
 //explicit constructor to initialize instance variables -- it is called
@@ -96,13 +96,13 @@ Returns: nothing
 This method calls: nothing
 This method is called by: heal method of monsters and Sorceress
 ---------------------------------------------------------*/
-	public void addHitPoints(int hitPoints)
+	public void addHitPoints(int hp)
 	{
-		if (hitPoints <=0)
+		if (hp <=0)
 			System.out.println("Hitpoint amount must be positive.");
 		else
 		{
-			this.hitPoints += hitPoints;
+			this.hitPoints += hp;
 			//System.out.println("Remaining Hit Points: " + hitPoints);
 
 		}

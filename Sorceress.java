@@ -13,13 +13,13 @@
 
 public class Sorceress extends Hero
 {
-	public final int MIN_ADD = 25;
-	public final int MAX_ADD = 50;
+	private final int MIN_ADD = 25;
+	private final int MAX_ADD = 50;
 
 //-----------------------------------------------------------------
     public Sorceress()
 	{
-		super("Sorceress", 75, 5, .7, 25, 50, .3);
+		super("Sorceress", 75, 5, .7, 25, 50, .3, new FireBall());
 
 
     }//end constructor
@@ -33,7 +33,7 @@ public class Sorceress extends Hero
 		addHitPoints(hPoints);
 		System.out.println(name + " added [" + hPoints + "] points.\n"
 							+ "Total hit points remaining are: "
-							+ hitPoints);
+							+ getHitPoints());
 		 System.out.println();
 
     }//end increaseHitPoints method
@@ -41,8 +41,10 @@ public class Sorceress extends Hero
 //-----------------------------------------------------------------
 	public void attack(DungeonCharacter opponent)
 	{
-		System.out.println(name + " casts a spell of fireball at " +
-							opponent.getName() + ":");
+		
+		/*System.out.println(name + " casts a spell of fireball at " +
+							opponent.getName() + ":");*/
+		this.special.specialAttack(this, opponent);
 		super.attack(opponent);
 	}//end override of attack method
 

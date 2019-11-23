@@ -12,8 +12,8 @@
 
 public abstract class Monster extends DungeonCharacter
 {
-	protected double chanceToHeal;
-	protected int minHeal, maxHeal;
+	private double chanceToHeal;
+	private int minHeal, maxHeal;
 
 //-----------------------------------------------------------------
   public Monster(String name, int hitPoints, int attackSpeed,
@@ -34,14 +34,14 @@ public abstract class Monster extends DungeonCharacter
 	boolean canHeal;
 	int healPoints;
 
-	canHeal = (Math.random() <= chanceToHeal) && (hitPoints > 0);
+	canHeal = (Math.random() <= chanceToHeal) && (getHitPoints() > 0);
 
 	if (canHeal)
 	{
 		healPoints = (int)(Math.random() * (maxHeal - minHeal + 1)) + minHeal;
 		addHitPoints(healPoints);
 		System.out.println(name + " healed itself for " + healPoints + " points.\n"
-							+ "Total hit points remaining are: " + hitPoints);
+							+ "Total hit points remaining are: " + getHitPoints());
 		System.out.println();
 	}//end can heal
 
@@ -49,9 +49,9 @@ public abstract class Monster extends DungeonCharacter
   }//end heal method
 
 //-----------------------------------------------------------------
- public void subtractHitPoints(int hitPoints)
+ public void subtractHitPoints(int damage)
  {
-		super.subtractHitPoints(hitPoints);
+		super.subtractHitPoints(damage);
 		heal();
 
  }//end method

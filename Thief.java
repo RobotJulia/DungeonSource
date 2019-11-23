@@ -14,7 +14,7 @@ public class Thief extends Hero
 
     public Thief()
 	{
-		super("Thief", 75, 6, .8, 20, 40, .5);
+		super("Thief", 75, 6, .8, 20, 40, .5, new SurpriseAttack());
 
 
 
@@ -25,10 +25,11 @@ public class Thief extends Hero
 		double surprise = Math.random();
 		if (surprise <= .4)
 		{
-			System.out.println("Surprise attack was successful!\n" +
+			this.special.specialAttack(this, opponent);
+			/*System.out.println("Surprise attack was successful!\n" +
 								name + " gets an additional turn.");
 			Battle.setTurns(Battle.getNumTurns() + 1);//numTurns++;
-			attack(opponent);
+			attack(opponent);*/
 		}//end surprise
 		else if (surprise >= .9)
 		{

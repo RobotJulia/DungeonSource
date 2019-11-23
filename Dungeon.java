@@ -55,7 +55,7 @@ public class Dungeon
 		do
 		{
 		    theHero = chooseHero();
-		    theMonster = generateMonster();
+		    theMonster = generateMonster();//generateMonster();
 			Battle.battle(theHero, theMonster);
 
 		} while (playAgain());
@@ -70,7 +70,7 @@ this task
 	public static Hero chooseHero()
 	{
 		int choice;
-		Hero theHero;
+		//Hero theHero;
 
 		System.out.println("Choose a hero:\n" +
 					       "1. Warrior\n" +

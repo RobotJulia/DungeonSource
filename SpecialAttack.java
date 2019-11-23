@@ -1,5 +1,5 @@
 
 public interface SpecialAttack {
 
-	public void specialAttack(DungeonCharacter other);
+	public void specialAttack(DungeonCharacter hero, DungeonCharacter opponent);
 }
